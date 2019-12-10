@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %} 
+
+
+
+ <!-- style="height: 100vh;" -->
+<div class="row" style="height: 70%;">
+
+    <!-- LEFT COL -->
+    <div class="col-2 card shadow-sm" style="background-color:#01A1A9;">
+        <img class="" src="{% static 'hello/hello_imgs/leftside.png' %}" style="display: block;width:100%;max-height:100%;"/>
+    </div>
+
+    <!-- RIGHT BIG COL -->
+    <div class="col-10 card shadow-sm" style="background-color:#E5E5E5;">
+        
+        <!-- TOP VALUES -->
+        <div class="row h-5 mt-1 mb-3 ml-4 mr-4" style="background-color:#E5E5E5;">
+            <div class="col-2 pr-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="card shadow-sm h-100 pr-2 pl-2 pt-2 pb-2 font-weight-bold" style="background-color:#FFFFFF;">
+                <div class="row">
+                    <div class="col-12"><p class="font-weight-bold">Выход ПП, кг</p></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-6"><p class="font-weight-bold">{{values.0}}</p></div>
+                    <div class="col-6"><p class="font-weight-bold"><img class="" src="{% static 'hello/hello_imgs/green_arrow.png' %}"  width="40" height="40" style="display: block;max-width:100%;max-height:100%;"/></p></div>
+                </div>
+            </div></div>
+            <div class="col-2 pr-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="card shadow-sm h-100 pr-2 pl-2 pt-2 pb-2 font-weight-bold" style="background-color:#FFFFFF;">
+                <div class="row">
+                    <div class="col-12"><p class="font-weight-bold">Выход атактики, кг</p></div>
+                </div>
+                <p>{{values.1}}</p>
+            </div></div>
+            <div class="col-2 pr-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="card shadow-sm h-100 pr-2 pl-2 pt-2 pb-2 " style="background-color:#FFFFFF;">
+                <div class="row">
+                    <div class="col-6"><p class="font-weight-bold">P, Па</p></div>
+                    <div class="col-6"><p class="text-right">R1</p></div>
+                </div>
+                <br><p class="font-weight-bold">{{values.2}}</p>
+
+            </div></div>
+            <div class="col-2 pr-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="card shadow-sm h-100 pr-2 pl-2 pt-2 pb-2 " style="background-color:#FFFFFF;">
+                <div class="row">
+                    <div class="col-6"><p class="font-weight-bold">P, Па</p></div>
+                    <div class="col-6"><p class="text-right">R2</p></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-6"><p class="font-weight-bold">{{values.3}}</p></div>
+                    <div class="col-6"><p class="font-weight-bold"><img class="" src="{% static 'hello/hello_imgs/red_arrow.png' %}"  width="40" height="40" style="display: block;max-width:100%;max-height:100%;"/></p></div>
+                </div>
+            </div></div>
+            <div class="col-2 pr-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="card shadow-sm h-100 pr-2 pl-2 pt-2 pb-2 " style="background-color:#FFFFFF;">
+                <div class="row">
+                    <div class="col-6"><p class="font-weight-bold">Т, К</p></div>
+                    <div class="col-6"><p class="text-right">R1</p></div>
+                </div>
+                <br><p class="font-weight-bold">{{values.4}}</p>
+            </div></div>
+            <div class="col-2 pr-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="card shadow-sm h-100 pr-2 pl-2 pt-2 pb-2 " style="background-color:#FFFFFF;">
+                <div class="row">
+                    <div class="col-6"><p class="font-weight-bold">Т, К</p></div>
+                    <div class="col-6"><p class="text-right">R2</p></div>
+                </div>
+                <br><p class="font-weight-bold">{{values.5}}</p>
+            </div></div>
+        </div>
+
+        <!-- ROW WTIH GRAPHS AND BUTTONS -->
+        <div class="row h-100 ml-5 mr-5" style="background-color:#FFFFFF;">
+
+            <!-- GRAPHS -->
+            <div class="col-9 pl-2 pr-2 pt-2 pb-2" style="background-color:#FFFFFF;">
+                <div class="h-50 pl-1 pr-1 pt-1 pb-1" style="background-color:#FFFFFF;">
+                    <div class="h-100" style="background-color:#FFFFFF;">
+                        <!-- <div id="curve_chart" style="width: 900px; height: 200px"></div> -->
+                        <div id="curve_chart" style="width: 100%; height: 100%"></div>
+                    </div>
+                </div> 
+                <div class="h-50 pl-1 pr-1 pt-1 pb-1" style="background-color:#FFFFFF;">
+                    <div class="h-100" style="background-color:#FFFFFF;">
+                        <div id="curve_chart2" style="width: 100%; height: 100%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="col-3" style="background-color:#FFFFFF;">
+                <div class="h-100 font-weight-bold" style="background-color:#FFFFFF;">
+                    <form>
+<br>
+<div class="row"> <div class="col-6"></div> <div class="col-3">R1</div> <div class="col-3">R2</div> </div>
+<div class="row"> <div class="col-6">Пропилен, л</div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="prop_r1"></div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="prop_r2"></div> </div>
+<div class="row"> <div class="col-6">Водород, л</div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="vod_r1"></div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="vod_r2"></div> </div>
+<div class="row"> <div class="col-6">Kat, л</div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="cat_r1"></div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="cat_r2"></div> </div>
+<div class="row"> <div class="col-6">Донор, л</div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="don_r1"></div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="don_r2"></div> </div>
+<div class="row"> <div class="col-6">Нефрас, л</div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="nef_r1"></div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="nef_r2"></div> </div>
+<div class="row"> <div class="col-6">ТЭА, л</div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="tea_r1"></div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="tea_r2"></div> </div>
+<br>
+<div class="row"> <div class="col-6"></div> <div class="col-6"><button class="btn btn-outline-info my-2 my-sm-0" type="submit">Прогноз</button></div></div>
+<br>
+<div class="row"> <div class="col-6"></div> <div class="col-6"><button class="btn btn-outline-info my-2 my-sm-0" type="submit">Назначить</button></div></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- PLOT IMG -->
+        <div class="row h-10 mt-3 mb-5 ml-5 mr-5" style="background-color:#FFFFFF;">
+            <img class="" src="{% static 'hello/hello_imgs/bottom.png' %}" style="display: block;max-width:100%;max-height:100%;"/>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- 
+Пропилен, л
+Водород, л
+Катализатор, л
+Донор, л
+Нефрас, л
+ТЭА, л
+ -->
+<!-- GRAPH ACTIVITY -->
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Year', 'Sales', 'Expenses'],
+            ['2004',  1000,      400],
+            ['2005',  1170,      460],
+            ['2006',  660,       1120],
+            ['2007',  1030,      540]
+        ]);
+        var options = {
+            title: 'Активность катализатора',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+        };
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+        chart.draw(data, options);
+    }
+</script>
+
+<!-- GRAPH ATACTIC -->
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Year', 'Sales', 'Expenses'],
+            ['2004',  1000,      400],
+            ['2005',  1170,      460],
+            ['2006',  660,       1120],
+            ['2007',  1030,      540]
+        ]);
+        var options = {
+            title: 'Атактика',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+        };
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart2'));
+        chart.draw(data, options);
+    }
+</script>
+
+<!-- ACTIVITY UPDATE GRAPH EVERY SECOND -->
+<script type="text/javascript">
+  var refreshIntervalId = 0;
+  var current_value = 0
+  refreshIntervalId = window.setInterval(function(){
+    console.log("--------------activity refresh")
+    var text_for_prediction = 'text_for_prediction'//$('textarea#mytextarea').val();
+    $.ajax({
+        type: "post",
+        dataType: "json",
+        context:this,
+        timeout: 10000, // sends error after 3 sec
+        url: "{% url 'hello:update'%}",
+        data: {'csrfmiddlewaretoken' : '{{csrf_token}}', 'next' : '{{request.build_absolute_uri}}', 'text_for_prediction' :text_for_prediction },
+        success: function(resp) { 
+            // var test_value = resp.prediction[0][0]
+            // console.log('prediction' + resp.prediction)
+            // console.log('success2_' + resp.product_values_count)
+            // current_value = current_value + test_value + 100
+            // console.log('success3_' + current_value)
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+              var data = google.visualization.arrayToDataTable(resp.prediction);
+              var options = {
+                title: 'Активность Kat',
+                curveType: 'function',
+                legend: { position: 'bottom' }
+              };
+              var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+              chart.draw(data, options);
+            }
+        },
+        fail: function(){
+            console.log('activity fail')
+        },
+        error:function(x,e) {
+            console.log('activity error')
+        }
+        
+    });
+  }, 3000);
+    /* later */
+  // clearInterval(refreshIntervalId);
+</script>
+
+
+<!-- ATACTIC UPDATE GRAPH EVERY SECOND -->
+<script type="text/javascript">
+  var refreshIntervalId = 0;
+  var current_value = 0
+  refreshIntervalId = window.setInterval(function(){
+    console.log("-------------atactic refresh")
+    var text_for_prediction = 'text_for_prediction'//$('textarea#mytextarea').val();
+    $.ajax({
+        type: "post",
+        dataType: "json",
+        context:this,
+        timeout: 10000, // sends error after 3 sec
+        url: "{% url 'hello:atc_update'%}",
+        data: {'csrfmiddlewaretoken' : '{{csrf_token}}', 'next' : '{{request.build_absolute_uri}}', 'text_for_prediction' :text_for_prediction },
+        success: function(resp) { 
+            // var test_value = resp.prediction[0][0]
+            console.log('atactic' + resp.atc_prediction)
+            // console.log('success2_' + resp.product_values_count)
+            // current_value = current_value + test_value + 100
+            // console.log('success3_' + current_value)
+            
+            // google.charts.load('current', {'packages':['corechart']});
+            // google.charts.setOnLoadCallback(drawChart);
+            // function drawChart() {
+            //   var data = google.visualization.arrayToDataTable(resp.atc_prediction);
+            //   var options = {
+            //     title: 'Атактика',
+            //     curveType: 'function',
+            //     legend: { position: 'bottom' }
+            //   };
+            //   var chart = new google.visualization.LineChart(document.getElementById('curve_chart2'));
+            //   chart.draw(data, options);
+            // }
+        },
+        fail: function(){
+            console.log('atactic fail')
+        },
+        error:function(x,e) {
+            console.log('atactic error')
+        }
+        
+    });
+  }, 4000);
+    /* later */
+  // clearInterval(refreshIntervalId);
+</script>
+
+
+
+{% endblock %} 
+
+
+{% comment %} 
+<div class="col-2 pl-2 pr-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="h-100" style="background-color:#FFFFFF;">col1</div></div>
+            <div class="col-2 pl-2 pr-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="h-100" style="background-color:#FFFFFF;">col1</div></div>
+            <div class="col-2 pl-2 pr-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="h-100" style="background-color:#FFFFFF;">col1</div></div>
+            <div class="col-2 pl-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="h-100" style="background-color:#FFFFFF;">col1</div></div>
+
+<div class="col-2 pl-2 pr-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="h-100" style="background-color:#FFFFFF;">col1</div></div>
+
+    <div class="col-2 pl-2 pr-2 pt-2 pb-2" style="background-color:#01A1A9;">
+        <div class="h-100" style="background-color:#FFFFFF;">Цикл производства ПП</div>
+    </div>
+    <div class="col-10 pl-2 pr-2 pt-2 pb-2" style="background-color:#01A1A9;">
+        <div class="h-100" style="background-color:#FFFFFF;">Цикл2</div>
+    </div>
+
+
+<img class="mt-2" src="{% static 'hello/hello_imgs/leftside.png' %}" width="40" height="40" style="display: block;max-width:100%;max-height:30px;">
+    <div class="col-1 card shadow-sm" style="background-color:#01A1A9;">
+        <div>
+            col3
+        </div>
+    </div>
+    <div class="col-4 col-sm-4 col-md-4 col-lg-4 card shadow-sm">
+        <div>
+            col3
+        </div>
+    </div>
+{% endcomment %} 
+
+
+
+
+
+

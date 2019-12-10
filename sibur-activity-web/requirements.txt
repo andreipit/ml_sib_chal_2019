@@ -1,0 +1,9 @@
+django
+gunicorn
+django-heroku
+requests
+pandas
+numpy
+sklearn
+transliterate
+nltk

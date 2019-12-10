@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %} 
+
+
+{#{predictions}#}
+</br></br>predictions={{predictions}}</br>
+</br></br>df={{df}}</br>
+</br></br>pred={{pred}}</br>
+
+<!-- <div id="basket_link">Корзина</div> -->
+
+
+<!-- <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+    <input class="to_basket_number" type="number" value="1" min="1" style="width: 4em;" product_value_code="123">
+</div> -->
+<div class="p-3"></div>
+<div >
+<h5>Загрузить csv на сайт:</h5>
+<form action="{% url 'hello:uploadcsv'%}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="files" class="btn">Изменить картинку:</label>
+    <input type="file" id="some_id" name="avatar2" >
+    <input type="submit" value="Сохранить">
+    <input type="hidden" id="custId" name="product_id" value="{{product.id}}">
+    <input type="hidden" id="custId2" name="next" value="{{request.build_absolute_uri}}">
+    {#{form.captcha}#}
+</form>
+    
+
+<br><br>
+<h4 class="mb-3">Введите текст обращения и нажмите "Отправить":</h4><br>
+
+<textarea class="col-12 form-control" id="mytextarea" rows="4" cols="50">
+	Когда движешься по Солотчинскому шоссе, в сторону Солотчи, на указателе мозолит глаз и сбивает водителя ванадльный иероглиф. 
+</textarea>
+<br>
+<div class="text-center"> <!-- col-md-7 -->
+    <span class="to_basket btn btn-outline-success" id="to_basket" product_code="123" >Отправить</span>
+</div>
+<div id="results"></div>
+
+<!-- BASKET -->
+<script type="text/javascript">
+    // $(function(){
+        $('.to_basket').on('click',function(){
+            // var product_code = this.getAttribute("product_code");
+            // var input_number = $('[product_value_code=' + product_code + ']')[0];
+            // var curr_basket_link = $('[basket_link_code=' + product_code + ']')[0];
+            // var product_value = $('[product_value_code=' + product_code + ']')[0].value;
+            // var product_value = input_number.value;
+            var text_for_prediction = $('textarea#mytextarea').val();
+
+            var self = this
+            if (self.innerHTML == "Отправить")
+            {
+                // self.innerHTML = "Добавление...";
+                // $(this).addClass('loading_basket');
+                // $(this).removeClass('btn-outline-success');
+                // $(this).removeClass('to_basket ');
+
+                // console.log('adding to basket product ' + product_code)
+                $.ajax({
+                    type: "post",
+                    dataType: "json",
+                    context:this,
+                    timeout: 10000, // sends error after 3 sec
+                    url: "{% url 'hello:update'%}",
+                    data: {'csrfmiddlewaretoken' : '{{csrf_token}}', 'next' : '{{request.build_absolute_uri}}', 'text_for_prediction' :text_for_prediction },
+      //               success: function(resp) { 
+      //                   console.log('success' + resp)
+      //                   var pred_cat = resp.prediction['category']
+      //                   var pred_theme = resp.prediction['theme']
+      //                   var pred_ex = resp.prediction['executor']
+						// var count = $("#results").children().length;
+      //                   $("#results").prepend('<div><br><div>'+count+'.</div><div>Категория: '+pred_cat+'</div>' + '<div>Тема: '+pred_theme+'</div>' + '<div>Исполнитель: '+pred_ex+'</div></div>');
+      //               },
+                    success: function(resp) { 
+                        console.log('success' + resp.prediction)
+                        // $("#results").prepend(resp.prediction);
+                    },
+                    fail: function(){
+                        console.log('fail')
+                        // self.innerHTML = "В корзину";
+                        // $(this).removeClass('loading_basket ');$(this).addClass('btn-outline-success');$(this).addClass('to_basket');
+                    },
+                    error:function(x,e) {
+                        console.log('error')
+                        if (x.status==0) {
+                            console.log('You are offline!!\n Please Check Your Network.');
+                        } else if(x.status==404) {
+                            console.log('Requested URL not found.');
+                        } else if(x.status==500) {
+                            console.log('Internel Server Error.');
+                        } else if(e=='parsererror') {
+                            console.log('Error.\nParsing JSON Request failed.');
+                        } else if(e=='timeout'){
+                            console.log('Request Time out.');
+                        } else {
+                            console.log('Unknow Error.\n'+x.responseText);
+                        }
+                        // self.innerHTML = "В корзину";
+                        // $(this).removeClass('loading_basket ');$(this).addClass('btn-outline-success');$(this).addClass('to_basket');
+                    }
+                    
+                });
+            }
+
+        })
+    // });
+</script>
+
+
+
+
+
+
+{% endblock %} 
+
+
+
+
+<!-- ATACTIC UPDATE GRAPH EVERY SECOND -->
+<script type="text/javascript">
+  var refreshIntervalId = 0;
+  var current_value = 0
+  refreshIntervalId = window.setInterval(function(){
+    console.log("-------------atactic refresh")
+    var text_for_prediction = 'text_for_prediction'//$('textarea#mytextarea').val();
+    $.ajax({
+        type: "post",
+        dataType: "json",
+        context:this,
+        timeout: 10000, // sends error after 3 sec
+        url: "{% url 'hello:atc_update'%}",
+        data: {'csrfmiddlewaretoken' : '{{csrf_token}}', 'next' : '{{request.build_absolute_uri}}', 'text_for_prediction' :text_for_prediction },
+        success: function(resp) { 
+            // var test_value = resp.prediction[0][0]
+            console.log('atactic' + resp.atc_prediction)
+            // console.log('success2_' + resp.product_values_count)
+            // current_value = current_value + test_value + 100
+            // console.log('success3_' + current_value)
+            
+            // google.charts.load('current', {'packages':['corechart']});
+            // google.charts.setOnLoadCallback(drawChart);
+            // function drawChart() {
+            //   var data = google.visualization.arrayToDataTable(resp.atc_prediction);
+            //   var options = {
+            //     title: 'Атактика',
+            //     curveType: 'function',
+            //     legend: { position: 'bottom' }
+            //   };
+            //   var chart = new google.visualization.LineChart(document.getElementById('curve_chart2'));
+            //   chart.draw(data, options);
+            // }
+        },
+        fail: function(){
+            console.log('atactic fail')
+        },
+        error:function(x,e) {
+            console.log('atactic error')
+        }
+        
+    });
+  }, 4000);
+    /* later */
+  // clearInterval(refreshIntervalId);
+</script>
