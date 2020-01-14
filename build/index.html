@@ -1,0 +1,300 @@
+<!-- <div>index test</div> -->
+<!-- <img src='img01.jpg'/> -->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+
+
+
+
+
+    <title>Sibur</title>
+  </head>
+  <body>
+
+
+    <script src="jquery-3.3.1.js"></script>
+    <script src="popper.min.js"></script>
+    <script src="bootstrap.min.js'"></script>
+    <script src="loader.js"></script>
+ 
+    
+    
+    <!-- <div class="container-fluid mt-5"> -->
+    <div class="container-fluid">
+
+    </div>
+
+
+    
+  </body>
+</html>
+
+
+<style>
+  /* Sticky footer styles - align footer to bottom
+  -------------------------------------------------- */
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    /* Margin bottom by footer height */
+    /*margin-bottom: 60px;*/
+  }
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+  }
+</style>
+
+
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2004',  1000,      400],
+          ['2005',  1170,      460],
+          ['2006',  660,       1120],
+          ['2007',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+<!--   <body>
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+  </body> -->
+</html>
+
+
+
+
+ <!-- style="height: 100vh;" -->
+<div class="row" style="height: 70%;">
+
+    <!-- LEFT COL -->
+    <div class="col-2 card shadow-sm" style="background-color:#01A1A9;">
+        <img class="" src="hello/hello_imgs/leftside.png" style="display: block;width:100%;max-height:100%;"/>
+    </div>
+
+    <!-- RIGHT BIG COL -->
+    <div class="col-10 card shadow-sm" style="background-color:#E5E5E5;">
+        
+        <!-- TOP VALUES -->
+        <div class="row h-5 mt-1 mb-3 ml-4 mr-4" style="background-color:#E5E5E5;">
+            <div class="col-2 pr-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="card shadow-sm h-100 pr-2 pl-2 pt-2 pb-2 font-weight-bold" style="background-color:#FFFFFF;">
+                <div class="row">
+                    <div class="col-12"><p class="font-weight-bold">Выход ПП, кг</p></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-6"><p class="font-weight-bold"><snap class='value0'>1.23</snap></p></div>
+                    <div class="col-6"><p class="font-weight-bold"><img class="" src="hello/hello_imgs/green_arrow.png"  width="40" height="40" style="display: block;max-width:100%;max-height:100%;"/></p></div>
+                </div>
+            </div></div>
+            <div class="col-2 pr-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="card shadow-sm h-100 pr-2 pl-2 pt-2 pb-2 font-weight-bold" style="background-color:#FFFFFF;">
+                <div class="row">
+                    <div class="col-12"><p class="font-weight-bold">Выход атактики, кг</p></div>
+                </div>
+                <p><snap class='value1'>0.12</snap></p>
+            </div></div>
+            <div class="col-2 pr-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="card shadow-sm h-100 pr-2 pl-2 pt-2 pb-2 " style="background-color:#FFFFFF;">
+                <div class="row">
+                    <div class="col-6"><p class="font-weight-bold">P, Па</p></div>
+                    <div class="col-6"><p class="text-right">R1</p></div>
+                </div>
+                <br><p class="font-weight-bold"><snap class='value2'>2.98</snap></p>
+
+            </div></div>
+            <div class="col-2 pr-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="card shadow-sm h-100 pr-2 pl-2 pt-2 pb-2 " style="background-color:#FFFFFF;">
+                <div class="row">
+                    <div class="col-6"><p class="font-weight-bold">P, Па</p></div>
+                    <div class="col-6"><p class="text-right">R2</p></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-6"><p class="font-weight-bold"><snap class='value3'>1.05</snap></p></div>
+                    <div class="col-6"><p class="font-weight-bold"><img class="" src="hello/hello_imgs/red_arrow.png"  width="40" height="40" style="display: block;max-width:100%;max-height:100%;"/></p></div>
+                </div>
+            </div></div>
+            <div class="col-2 pr-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="card shadow-sm h-100 pr-2 pl-2 pt-2 pb-2 " style="background-color:#FFFFFF;">
+                <div class="row">
+                    <div class="col-6"><p class="font-weight-bold">Т, К</p></div>
+                    <div class="col-6"><p class="text-right">R1</p></div>
+                </div>
+                <br><p class="font-weight-bold"><snap class='value4'>4.61</snap></p>
+            </div></div>
+            <div class="col-2 pr-2 pt-2 pb-2" style="background-color:#E5E5E5;"><div class="card shadow-sm h-100 pr-2 pl-2 pt-2 pb-2 " style="background-color:#FFFFFF;">
+                <div class="row">
+                    <div class="col-6"><p class="font-weight-bold">Т, К</p></div>
+                    <div class="col-6"><p class="text-right">R2</p></div>
+                </div>
+                <br><p class="font-weight-bold"><snap class='value5'>2.45</snap></p>
+            </div></div>
+        </div>
+
+        <!-- ROW WTIH GRAPHS AND BUTTONS -->
+        <div class="row h-100 ml-5 mr-5" style="background-color:#FFFFFF;">
+
+            <!-- GRAPHS -->
+            <div class="col-9 pl-2 pr-2 pt-2 pb-2" style="background-color:#FFFFFF;">
+                <div class="h-75 pl-1 pr-1 pt-1 pb-1" style="background-color:#FFFFFF;">
+                    <div class="h-100" style="background-color:#FFFFFF;">
+                        <!-- <div id="curve_chart" style="width: 900px; height: 200px"></div> -->
+                        <div id="curve_chart" style="width: 100%; height: 100%"></div>
+                    </div>
+                </div> 
+                <div class="h-25 pl-1 pr-1 pt-1 pb-1" style="background-color:#FFFFFF;">
+                    <div class="h-100" style="background-color:#FFFFFF;">
+                        <div id="curve_chart2" style="width: 100%; height: 100%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="col-3" style="background-color:#FFFFFF;">
+                <div class="h-100 font-weight-bold" style="background-color:#FFFFFF;">
+                    <form>
+<br>
+<div class="row"> <div class="col-6"></div> <div class="col-3">R1</div> <div class="col-3">R2</div> </div>
+<div class="row"> <div class="col-6">Пропилен, л</div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="prop_r1"></div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="prop_r2"></div> </div>
+<div class="row"> <div class="col-6">Водород, л</div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="vod_r1"></div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="vod_r2"></div> </div>
+<div class="row"> <div class="col-6">Kat, л</div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="cat_r1"></div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="cat_r2"></div> </div>
+<div class="row"> <div class="col-6">Донор, л</div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="don_r1"></div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="don_r2"></div> </div>
+<div class="row"> <div class="col-6">Нефрас, л</div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="nef_r1"></div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="nef_r2"></div> </div>
+<div class="row"> <div class="col-6">ТЭА, л</div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="tea_r1"></div> <div class="col-3"><input class="form-control mr-sm-2" type="text" name="tea_r2"></div> </div>
+<br>
+<div class="row"> <div class="col-6"></div> <div class="col-6">
+    <span class="to_predict btn btn-outline-info" id="to_predict" product_code="123" >Прогноз</span>
+    <!-- <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Прогноз</button> -->
+</div></div>
+<br>
+<div class="row"> <div class="col-6"></div> <div class="col-6">
+    <span class="to_make btn btn-outline-info" id="to_make" product_code="123" >Назначить</span>
+    <!-- <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Назначить</button> -->
+</div></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- PLOT IMG -->
+        <div class="row h-10 mt-3 mb-5 ml-5 mr-5" style="background-color:#FFFFFF;">
+            <img class="" src="hello/hello_imgs/bottom.png" style="display: block;max-width:100%;max-height:100%;"/>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<!-- ACTIVITY UPDATE GRAPH EVERY SECOND -->
+<script type="text/javascript">
+  var refreshIntervalId = 0;
+  var current_value = 1030
+  var current_value2 = 540
+  refreshIntervalId = window.setInterval(function(){
+    console.log("--------------activity refresh")
+    var text_for_prediction = 'text_for_prediction'//$('textarea#mytextarea').val();
+    $.ajax({
+        type: "post",
+        dataType: "json",
+        context:this,
+        timeout: 10000, // sends error after 3 sec
+        // url: "{% url 'hello:update'%}",
+        // data: {'csrfmiddlewaretoken' : '{{csrf_token}}', 'next' : '{{request.build_absolute_uri}}', 'text_for_prediction' :text_for_prediction },
+        url: "",
+        data: {'csrfmiddlewaretoken' : '123', 'next' : '', 'text_for_prediction' :text_for_prediction },
+        success: function(resp) { 
+
+            $('.value0')[0].innerHTML = '0';//resp.values[0];
+            $('.value1')[0].innerHTML = '0';//resp.values[1];
+            $('.value2')[0].innerHTML = resp.values[2];
+            $('.value3')[0].innerHTML = resp.values[3];
+            $('.value4')[0].innerHTML = resp.values[4];
+            $('.value5')[0].innerHTML = resp.values[5];
+
+            // var test_value = resp.prediction[0][0]
+            // console.log('prediction' + resp.prediction)
+            // console.log('success2_' + resp.product_values_count)
+            // current_value = current_value + test_value + 100
+            // console.log('success3_' + current_value)
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+              var data = google.visualization.arrayToDataTable(resp.prediction);
+              var options = {
+                title: 'Активность Kat',
+                curveType: 'function',
+                legend: { position: 'bottom' }
+              };
+              var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+              chart.draw(data, options);
+            }
+        },
+        fail: function(){
+            console.log('activity fail')
+        },
+        error:function(x,e) {
+            console.log('activity error')
+              
+            current_value = 630 - Math.floor((Math.random() * 10) + 1);
+            current_value2 = 500 - Math.floor((Math.random() * 10) + 1);
+
+            var data = google.visualization.arrayToDataTable([
+                ['Time', 'True', 'Prediction'],
+                ['201',  500- Math.floor((Math.random() * 10) + 1),      500- Math.floor((Math.random() * 10) + 1)],
+                ['202',  500- Math.floor((Math.random() * 10) + 1),      500- Math.floor((Math.random() * 10) + 1)],
+                ['203',  500- Math.floor((Math.random() * 10) + 1),      500- Math.floor((Math.random() * 10) + 1)],
+                ['204',  500- Math.floor((Math.random() * 10) + 1),      500- Math.floor((Math.random() * 10) + 1)],
+                ['204',  500- Math.floor((Math.random() * 10) + 1),      500- Math.floor((Math.random() * 10) + 1)],
+                ['205',  500- Math.floor((Math.random() * 10) + 1),      500- Math.floor((Math.random() * 10) + 1)],
+                ['206',  NaN,       500- Math.floor((Math.random() * 10) + 1)],
+                ['207',  NaN,      current_value2]
+              ]);
+            var options = {
+                title: 'Активность Kat',
+                curveType: 'function',
+                legend: { position: 'bottom' },
+                vAxis: {
+                    title: '',
+                    ticks: [470, 500, 530]
+                }
+
+              };
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+            chart.draw(data, options);
+
+        }
+        
+    });
+  }, 500);
+    /* later */
+  // clearInterval(refreshIntervalId);
+</script>
